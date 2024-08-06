@@ -1,4 +1,5 @@
 import speech_recognition as sr
+import googletrans
 from googletrans import Translator
 from gtts import gTTS
 import os
@@ -31,5 +32,8 @@ class speechTranslator:
                 except sr.UnknownValueError:
                     print("Unknown error occurred")
                     return None
+    def getAllLanguages(self):
+        languages = {name: code for code, name in googletrans.LANGUAGES.items()}
+        return languages
         
         

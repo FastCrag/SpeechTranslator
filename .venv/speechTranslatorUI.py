@@ -1,5 +1,6 @@
 from speechTranslator import speechTranslator
 import tkinter as tk
+from tkinter import ttk
 import threading
 
 def speech_input(st, from_lang, to_lang, original_text_box, translated_text_box, stop_event):
@@ -37,14 +38,7 @@ def swap_sides(from_lang_var, to_lang_var, original_text_box, translated_text_bo
 def main():
     st = speechTranslator()
      # Available languages
-    languages = {
-        'English': 'en',
-        'Spanish': 'es',
-        'French': 'fr',
-        'German': 'de',
-        'Chinese (Simplified)': 'zh-cn',
-        'Japanese': 'ja'
-    }
+    languages = st.getAllLanguages()
 
     root = tk.Tk()
     root.title("Speech Translator")
@@ -52,11 +46,11 @@ def main():
     from_lang_var = tk.StringVar(root)
     to_lang_var = tk.StringVar(root)
 
-    from_lang_var.set('English')  # default value
-    to_lang_var.set('Spanish')    # default value
+    from_lang_var.set('english')  # default value
+    to_lang_var.set('spanish')    # default value
 
-    from_lang_menu = tk.OptionMenu(root, from_lang_var, *languages.keys())
-    to_lang_menu = tk.OptionMenu(root, to_lang_var, *languages.keys())
+    from_lang_menu = ttk.Combobox(root, textvariable=from_lang_var, values=list(languages.keys()))
+    to_lang_menu = ttk.Combobox(root, textvariable=to_lang_var, values=list(languages.keys()))
 
     from_lang_label = tk.Label(root, text="From Language")
     to_lang_label = tk.Label(root, text="To Language")
