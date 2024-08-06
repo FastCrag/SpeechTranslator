@@ -1,6 +1,5 @@
 from speechTranslator import speechTranslator
 import tkinter as tk
-from tkinter import messagebox
 import threading
 
 def speech_input(st, from_lang, to_lang, original_text_box, translated_text_box, stop_event):

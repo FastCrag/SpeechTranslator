@@ -17,16 +17,16 @@ class speechTranslator:
         os.system("start captured_voice.mp3")
     def speechToText(self, stop_event):
         with self.microphone as source:
-            print("Listening...")
+            #print("Listening...")
             while not stop_event.is_set():
                 audio = self.recognizer.listen(source)
                 try:
-                    print("Recognizing...")
+                    #print("Recognizing...")
                     text = self.recognizer.recognize_google(audio)
-                    print(f"Recognized Text: {text}")
+                    #print(f"Recognized Text: {text}")
                     return text
                 except sr.RequestError:
-                    print("Could not request results from Google Speech Recognition service")
+                    print("Could not connect to Google Speech Recognition service")
                     return None
                 except sr.UnknownValueError:
                     print("Unknown error occurred")
