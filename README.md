@@ -2,3 +2,5 @@ This Python project allows speech or text input to be translated into another la
 Uses speech-recognition library to get Speech-to-text and google's Text-to-Speech to return the voice translation
 Uses googletrans library to translate from one language to another
 Uses Tkinter for the UI
+
+Run the program through the speechTranslatorUI.py file
